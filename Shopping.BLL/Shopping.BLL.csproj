@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shopping.BLL.Contract\Shopping.BLL.Contract.csproj" />
+    <ProjectReference Include="..\Shopping.DAL.Contract\Shopping.DAL.Contract.csproj" />
+    <ProjectReference Include="..\Shopping.DAL\Shopping.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,61 @@
+﻿@using Market.Controllers;
+@using Shopping.DAL.Contract.Models;
+@model Cart
+
+<table id="tblProduct">
+    <tr>
+        @{
+            if (Model != null && Model.ProductItems != null)
+            {
+                foreach (var item in Model.ProductItems)
+                {
+                    <td>
+                        @item.Product.Name <br /> Price : @item.Product.Price
+                        <br />
+
+                        <form action="" method="post" id="frmPost@{@item.Product.Id}">
+                            <input type="hidden" id="ProductId" name="ProductId" value="@item.Product.Id" />
+                        </form>
+
+
+                        <img src="/css/Images/Minus.png" width="20" height="20" onclick="Click('/Home/DeleteFromCart', '@{@item.Product.Id}')" />
+                        <img src="/css/Images/Plus.png" width="20" height="20" onclick="Click('/Home/AddToCartFromCart', '@{@item.Product.Id}')" />
+
+                        <br />
+                        <label>Count: @item.Count</label>
+                    </td>
+                }
+            }
+        }
+
+    </tr>
+    <tr>
+        <td colspan="100">
+            <br />
+            <br />
+            <form action="/Home/AddToOrder" method="post">
+                <input type="hidden" id="ProductId" name="ProductName" value="" />
+                <br />
+                <br />
+                <input type="submit" value="Confirm" />
+            </form>
+
+            <label>
+                @ViewBag.Message
+            </label>
+
+        </td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+
+    function Click(url, id) {
+
+        var form = document.getElementById('frmPost' + id);
+        form.action = url;
+        form.submit();
+    }
+
+</script>

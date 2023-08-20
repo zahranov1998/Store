@@ -1,0 +1,33 @@
+﻿@using Market.Controllers;
+@using Shopping.DAL.Contract.Models;
+@model List<Category>
+@{
+    ViewData["Title"] = "Home Page";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table id="tblProduct">
+    <tr>
+        @{
+            var category = Model.Where(x => x.Products != null).FirstOrDefault();
+
+            if (category != null && category.Products != null)
+            {
+                foreach (var item in category.Products)
+                {
+                    <td>
+                        @item.Name <br /> Price : @item.Price $
+                        <br />
+                        <br />
+                        <form action="/Home/AddToCart" method="Post">
+                            <input type="hidden" id="ProductId" name="ProductId" value="@item.Id" />
+                            <input type="submit" value="Add To Cart" />
+                        </form>
+                    </td>
+                }
+            }
+        }
+    </tr>
+
+</table>

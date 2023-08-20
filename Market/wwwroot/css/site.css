@@ -1,0 +1,73 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+#tblData{
+    width:100%;
+    height:800px;
+    margin-left :auto;
+    margin-right:auto;
+    padding : 0px;
+    border-spacing:0px;
+    border :thin outset;
+    background-color : darkblue;
+    color:white;
+}
+
+#Header{
+    height : 20%;
+    border :thin outset;
+}
+
+#SubHeader {
+    height: 10%;
+    border: thin outset;
+    padding : 10px;
+    text-align :end;
+}
+
+#Menu{
+    width:12%;
+    border :thin outset;
+    height:40%;
+}
+
+#Main{
+    background-color:white;
+    border: thin outset;
+    color : black;
+}
+
+#subFooter {
+    height: 10%;
+    border: thin outset;
+}
+
+#Footer {
+    height: 20%;
+    border: thin outset;
+}
+
+#tblProduct{
+    width:100%;
+    text-align :center;
+}

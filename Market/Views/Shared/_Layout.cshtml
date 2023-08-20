@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Market</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Market.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <table id="tblData" border="1">
+        <tr>
+            <td id="Header" colspan="2">
+                Market
+            </td>
+        </tr>
+        <tr>
+            <td id="SubHeader" colspan="2">
+                <a href="/Home/Cart">
+                    <img src="~/css/Images/Cart.jpg" width="40" height="40" ref />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td id="Menu">
+                <h6>Category</h6>
+                <br />
+                <ul>
+                    @foreach (var item in ViewBag.Categories)
+                    {
+                        <li><a href="/Home/GetProducts?categoryId=@item.Id">@item.Name</a></li>
+                    }
+                </ul>
+
+            </td>
+            <td id="Main">
+                @RenderBody()
+            </td>
+        </tr>
+        <tr>
+            <td id="SubFooter" colspan="2">
+                Address : ...
+            </td>
+        </tr>
+        <tr>
+            <td id="Footer" colspan="2">
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
