@@ -1,6 +1,7 @@
 ﻿using Market.Models;
 using Microsoft.AspNetCore.Mvc;
 using Shopping.BLL.Contract.Contract;
+using Shopping.BLL.Resources;
 using Shopping.DAL.Contract.Models;
 using System.Diagnostics;
 
@@ -96,13 +97,13 @@ public class HomeController : Controller
 
         if (cartExist == false)
         {
-            ViewBag.Message = "There Are No Products In The Cart";
+            ViewBag.Message = Resource.CartIsEmpty;
         }
         else
         {
             await _cartBLL.DeleteAllProducts();
 
-            ViewBag.Message = "Your order has been successfully registered";
+            ViewBag.Message = Resource.ConfirmOrder;
         }
 
         var cart = await _cartBLL.GetCart();
